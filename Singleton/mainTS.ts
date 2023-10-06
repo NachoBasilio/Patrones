@@ -22,3 +22,15 @@ class MySingleton {
         return this.data;
     }
 }
+
+const singlentonIstance1 = MySingleton.getInstance();//GetInstance solo se puede ejecutar desde la clase, haciendo referencia a la variable estatica
+console.log(singlentonIstance1);
+
+singlentonIstance1.getData()
+singlentonIstance1.setData("New data");
+
+console.log(singlentonIstance1.getData());
+
+const singlentonIstance2 = MySingleton.getInstance();
+
+console.log(singlentonIstance2.getData());
