@@ -52,3 +52,8 @@ console.log(context.executeStrategy())
 context.setStrategy(new ConcreteStrategy3())
 
 console.log(context.executeStrategy())
+
+
+
+
+
