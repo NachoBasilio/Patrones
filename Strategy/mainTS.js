@@ -23,5 +23,6 @@ var Contexto = /** @class */ (function () {
     };
     return Contexto;
 }());
-var contexto = new Contexto(new EstrategiaEfectivo());
+var estrategiaActual = new EstrategiaTarjeta();
+var contexto = new Contexto(estrategiaActual);
 contexto.ejecutarEstrategia(100);

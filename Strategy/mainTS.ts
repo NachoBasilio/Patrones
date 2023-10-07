@@ -26,6 +26,6 @@ class Contexto {
         this.estrategia.ejecutar(monto);
     }
 }
-
-const contexto = new Contexto(new EstrategiaEfectivo());
+const estrategiaActual :Estrategia = new EstrategiaTarjeta();
+const contexto = new Contexto(estrategiaActual);
 contexto.ejecutarEstrategia(100);
