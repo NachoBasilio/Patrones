@@ -20,6 +20,11 @@ class WeatherData {
             observer.actualizar(this.temperature);
         });
     }
+
+    setTemperature(temperature){
+        this.temperature = temperature;
+        this.notificar();
+    }
 }
 
 class Display {
@@ -36,4 +41,10 @@ class Display {
 const weatherData = new WeatherData();
 const display = new Display();
 weatherData.agregarObservador(display);
+
+console.log(display.temperature); 
+
+weatherData.setTemperature(30);
+
+console.log(display.temperature); 
 
