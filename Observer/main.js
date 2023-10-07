@@ -39,12 +39,16 @@ class Display {
 }
 
 const weatherData = new WeatherData();
-const display = new Display();
-weatherData.agregarObservador(display);
+const display1 = new Display();
+const display2 = new Display();
 
-console.log(display.temperature); 
+weatherData.agregarObservador(display1);
+weatherData.agregarObservador(display2);
+
+console.log(display1.temperature); 
+console.log(display2.temperature); 
 
 weatherData.setTemperature(30);
 
-console.log(display.temperature); 
-
+console.log(display1.temperature); 
+console.log(display2.temperature); 
