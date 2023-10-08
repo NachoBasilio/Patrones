@@ -12,12 +12,20 @@ class CanalChat {
         this.usuarios = this.usuarios.filter(u => u !== usuario);
     }
 
-    agregaMensaje(mensaje) {
+    agregaMensaje(mensaje, remitente) {
         this.mensajes.push(mensaje);
+        this.notifica(mensaje, remitente);
     }
 
-    notifica(mensaje) {
-        this.usuarios.forEach(usuario => usuario.recibeMensaje(mensaje));
+    notifica(mensaje, remitente) {
+        if (this.usuarios.length === 0) {
+            return;
+        }
+        this.usuarios.forEach(usuario => {
+            if (usuario !== remitente) {
+                usuario.recibeMensaje(mensaje, remitente);
+            }
+        });
     }
 }
 
@@ -26,13 +34,12 @@ class Usuario {
         this.nombre = nombre;
     }
 
-    recibeMensaje(mensaje) {
-        console.log(`${this.nombre} recibió: ${mensaje}`);
+    recibeMensaje(mensaje, remitente) {
+        console.log(`El usuario ${this.nombre} recibió el mensaje: ${mensaje} de parte de ${remitente.nombre}`);
     }
 
     enviaMensaje(mensaje, canal) {
-        canal.agregaMensaje(mensaje);
-        canal.notifica(mensaje);
+        canal.agregaMensaje(mensaje, this);
     }
 }
 
@@ -47,6 +54,6 @@ canal.agregaUsuario(usuario1);
 canal.agregaUsuario(usuario2);
 canal.agregaUsuario(usuario3);
 
+usuario3.enviaMensaje('Hola a todos', canal);
 
 
-canal.notifica('Mensaje de todos: ¡Hola a todos!');
