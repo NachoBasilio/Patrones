@@ -38,3 +38,6 @@ const fabricaDescuento = new FabricaDescuento();
 
 const producto1 = fabrica.crearProducto('Monitor 24 pulgadas', 100);
 const producto2 = fabricaDescuento.crearProducto('Monitor 24 pulgadas', 100);
+
+producto1.mostrarInfo();
+producto2.mostrarInfo();
